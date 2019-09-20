@@ -379,6 +379,256 @@ print(data)
 print(data.iloc[:,[2,1,0]])
 
 
+#26. Write a Pandas program to add one row in an existing DataFrame. 
+Sample data:
+Original DataFrame
+col1 col2 col3
+0 1 4 7
+1 4 5 8
+2 3 6 9
+3 4 7 0
+4 5 8 1
+
+
+data=pd.DataFrame(data)
+data.loc[5]=[10,11,12]
+
+print(data)
+
+#27. Write a Pandas program to write a DataFrame to CSV file using tab separator. 
+Sample data:
+Original DataFrame
+col1 col2 col3
+0 1 4 7
+1 4 5 8
+2 3 6 9
+3 4 7 0
+4 5 8 1
+
+data = {'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3': [7, 8, 9, 0, 1]}
+
+data=pd.DataFrame(data)
+
+print(data)
+
+data.to_csv('C:/Users/ggvnanc/Desktop/AAA/Python/DataFrame/data_file.csv',sep='\t',index=False)
+
+new_data=pd.read_csv('C:/Users/ggvnanc/Desktop/AAA/Python/DataFrame/data_file.csv')
+
+print(new_data)
+
+#28. Write a Pandas program to count city wise number of people from a given of data set (city, name of the person). 
+Sample data:
+city Number of people
+0 California 4
+1 Georgia 2
+2 Los Angeles 4
+
+data = pd.DataFrame({'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+'city': ['California', 'Los Angeles', 'California', 'California', 'California', 'Los Angeles', 'Los Angeles', 'Georgia', 'Georgia', 'Los Angeles']})
+
+data=pd.DataFrame(data)
+
+new_data=data.groupby(['city']).size().reset_index(name='number of people')
+
+print(new_data)
+
+
+#29. Write a Pandas program to delete DataFrame row(s) based on given column value. 
+Sample data:
+Original DataFrame
+col1 col2 col3
+0 1 4 7
+1 4 5 8
+2 3 6 9
+3 4 7 0
+4 5 8 1
+
+data = {'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3': [7, 8, 9, 0, 1]}
+
+data=pd.DataFrame(data)
+
+print(data.drop([1]))
+
+
+#31. Write a Pandas program to select a row of series/dataframe by given integer index. 
+Sample data:
+Original DataFrame
+col1 col2 col3
+0 1 4 7
+1 4 5 8
+2 3 6 9
+3 4 7 0
+4 5 8 1
+
+data = {'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3': [7, 8, 9, 0, 1]}
+
+data=pd.DataFrame(data)
+
+print(data.iloc[2,:])
+
+
+#32. Write a Pandas program to replace all the NaN values with Zero's in a column of a dataframe. 
+Sample data:
+Original DataFrame
+attempts name qualify score
+0 1 Anastasia yes 12.5
+1 3 Dima no 9.0
+2 2 Katherine yes 16.5
+3 3 James no NaN
+4 2 Emily no 9.0
+5 3 Michael yes 20.0
+6 1 Matthew yes 14.5
+7 1 Laura no NaN
+8 2 Kevin no 8.0
+9 1 Jonas yes 19.0
+
+
+data=pd.DataFrame(data)
+
+print(data.fillna(0))
+
+
+#33. Write a Pandas program to convert index in a column of the given dataframe.
+Sample data:
+Original DataFrame
+attempts name qualify score
+0 1 Anastasia yes 12.5
+1 3 Dima no 9.0
+2 2 Katherine yes 16.5
+3 3 James no NaN
+4 2 Emily no 9.0
+5 3 Michael yes 20.0
+6 1 Matthew yes 14.5
+7 1 Laura no NaN
+8 2 Kevin no 8.0
+9 1 Jonas yes 19.0
+
+data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+        'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+        'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+        'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+        
+data=pd.DataFrame(data)
+
+data.reset_index(level=0,inplace=True)
+
+#Hiding index
+print(data.to_string(index=False))      
+        
+#34. Write a Pandas program to set a given value for particular cell in  DataFrame using index value. 
+Sample data:
+Original DataFrame
+attempts name qualify score
+0 1 Anastasia yes 12.5
+1 3 Dima no 9.0
+2 2 Katherine yes 16.5
+3 3 James no NaN
+4 2 Emily no 9.0
+5 3 Michael yes 20.0
+6 1 Matthew yes 14.5
+7 1 Laura no NaN
+8 2 Kevin no 8.0
+9 1 Jonas yes 19.0
+Set a given value for particular cell in the DataFrame
+
+data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+        'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+        'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+        'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+
+
+data=pd.DataFrame(data)
+
+data.set_value(0,'score',15)
+
+
+#35. Write a Pandas program to count the NaN values in one or more columns in DataFrame. 
+Sample data:
+Original DataFrame
+attempts name qualify score
+0 1 Anastasia yes 12.5
+1 3 Dima no 9.0
+2 2 Katherine yes 16.5
+3 3 James no NaN
+4 2 Emily no 9.0
+5 3 Michael yes 20.0
+6 1 Matthew yes 14.5
+7 1 Laura no NaN
+8 2 Kevin no 8.0
+9 1 Jonas yes 19.0
+Number of NaN values in one or more columns:
+2
+
+data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+        'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+        'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+        'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+        
+data=pd.DataFrame(data)
+
+print(data.isna().values.sum())
+
+
+
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
