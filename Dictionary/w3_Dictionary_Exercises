@@ -1,0 +1,133 @@
+dict_nums = dict(x=list(range(11, 20)), y=list(range(21, 30)), z=list(range(31, 40)))
+d=dict(x=list(range(1,6)),y=list(range(6,11)))
+print(d)
+print(d['x'][4])
+
+1)
+import operator
+d = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+
+print(dict(sorted(d.items(),key=operator.itemgetter(1),reverse=True)))
+
+print(dict(sorted(d.items(),key=operator.itemgetter(1))))
+
+2)
+d= {0: 10, 1: 20}
+
+d[2]=30
+print(d)
+
+3)
+dic1={1:10, 2:20}
+dic2={3:30, 4:40}
+dic3={5:50,6:60}
+
+d={}
+
+for i in (dic1,dic2,dic3):
+  d.update(i)
+
+print(d)
+
+4)
+d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+
+def check(n):
+  if n in d:
+    print('yes')
+  else:
+    print('no')
+  
+check(10)
+
+print(len(d))
+
+ def check(n):
+   for i in range(1,len(d)+1):
+     if d[i]==n:
+       print(i)
+ check(60)
+
+5)
+
+d = {'x': 10, 'y': 20, 'z': 30} 
+
+for j,k in d.items():
+  print(j,k)
+
+
+6)
+
+d={}
+
+def new_d(n):
+  for i in range(1,n+1):
+    d[i]=i**2
+  print(d)
+new_d(5)
+
+7)
+
+d={}
+
+def new_d(n):
+  for i in range(1,n+1):
+    d[i]=i**2
+  print(d)
+new_d(15)
+
+8)
+
+d1 = {'a': 100, 'b': 200}
+d2 = {'x': 300, 'y': 200}
+d={}
+d3={}
+for i in (d1,d2):
+  d.update(i)
+print(d)
+
+d3=d1.copy()
+d3.update(d2)
+print(d3)
+
+10)
+ d = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+ count=0
+ for k in d:
+   count+=k
+ print(count)  
+ print(sum(d.values()))
+
+
+11)
+ d = {'data1':100,'data2':-54,'data3':247}
+ count=1
+ for i in d:
+   count=count*d[i]
+ print(count)
+
+12)
+ myDict = {'a':1,'b':2,'c':3,'d':4}
+
+ def remove(x):
+   if x in myDict:
+     del myDict[x]
+   print(myDict)
+
+ remove('c')
+
+13)
+ k=['a','b','c','d']
+ v=[1,2,3,4]
+ d=dict(zip(k,v))
+
+ print(d)
+
+14)
+
+
+
+
+
+
+
