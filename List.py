@@ -45,6 +45,21 @@ def flat_list(x):
     
 flat_list([0, 10, [20, 30], 40, 50, [60, 70, 80], [90, 100, 110, 120]])
 
+#71. Write a Python program to check whether all dictionaries in a list are empty or not.
+
+def check_empty_dict(d):
+    for i in d:
+        if bool(i):
+            return False
+    return True
+
+check_empty_dict([{},{},{}])
 
 
+#68. Write a Python program to extend a list without append
+
+x=[10, 20, 30]
+y=[40, 50, 60]
+
+x[:0]=y
 
